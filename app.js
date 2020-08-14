@@ -1,5 +1,7 @@
 let express = require('express');
 let firebase = require('firebase')
+const port = process.env.PORT || 3000;
+
 var firebaseConfig = {
 apiKey: "AIzaSyDit0eTpo8qPNecLNkientINF8ymA-vINk",
 authDomain: "jimchu-nodejs-02.firebaseapp.com",
@@ -107,6 +109,6 @@ app.get('*', (req, res) => {
     res.send('No Content');  
 });
 
-app.listen(3000, () => {  
-    console.log('Listening on port 3000');  
-}); 
+app.listen(port, () => {
+    console.log(`server listen on port =${port}`)
+});
