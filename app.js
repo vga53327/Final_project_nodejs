@@ -31,8 +31,20 @@ app.get('/', async (req, res) => {
     });  
 });
 
-app.get("/Jim",(req, res) => {
-    res.send("<h1>JimChu</h1>")
+app.get("/jim", async (req, res) => {
+    let data = await db.collection('ClassA').get();
+    userArr = []
+    data.forEach((doc) => {
+        userArr.push({
+            id: doc.id,
+            name: doc.data().name,
+            age: doc.data().age,
+            gender: doc.data().gender
+        })
+    })
+    res.render('classA', {
+        users: userArr
+    })
 })
 
 app.get("/firebase-test", async (req, res) => {
