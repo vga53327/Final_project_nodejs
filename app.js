@@ -1,7 +1,8 @@
 let express = require('express');
 let firebase = require('firebase');
-const port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 console.log("server running at port =",port);
+
 
 var firebaseConfig = {
 apiKey: "AIzaSyDit0eTpo8qPNecLNkientINF8ymA-vINk",
