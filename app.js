@@ -5,15 +5,15 @@ console.log("server running at port =",port);
 
 
 var firebaseConfig = {
-apiKey: "AIzaSyDit0eTpo8qPNecLNkientINF8ymA-vINk",
-authDomain: "jimchu-nodejs-02.firebaseapp.com",
-databaseURL: "https://jimchu-nodejs-02.firebaseio.com",
-projectId: "jimchu-nodejs-02",
-storageBucket: "jimchu-nodejs-02.appspot.com",
-messagingSenderId: "913726356571",
-appId: "1:913726356571:web:18f100936bb5e48141937e",
-measurementId: "G-EQWT29RZ7Q"
-};
+    apiKey: "AIzaSyDit0eTpo8qPNecLNkientINF8ymA-vINk",
+    authDomain: "jimchu-nodejs-02.firebaseapp.com",
+    databaseURL: "https://jimchu-nodejs-02.firebaseio.com",
+    projectId: "jimchu-nodejs-02",
+    storageBucket: "jimchu-nodejs-02.appspot.com",
+    messagingSenderId: "913726356571",
+    appId: "1:913726356571:web:18f100936bb5e48141937e",
+    measurementId: "G-EQWT29RZ7Q"
+  };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
