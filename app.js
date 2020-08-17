@@ -1,6 +1,6 @@
 let express = require('express');
 let firebase = require('firebase');
-let port = process.env.port || 3000;
+let port = process.env.PORT || 3000;
 console.log("server running at port =",port);
 
 
