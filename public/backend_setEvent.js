@@ -11,7 +11,7 @@ for(let i = 0 ; i < cross.length; i ++){
         console.log(text);
         console.log("in the cross, id = ", id);
 
-        // await alert("Successfully Delete Account !");
+        await alert("Successfully Delete Account !");
         // 馬上重新整理
         await location.reload();
     });
@@ -31,6 +31,6 @@ form.addEventListener('submit', async (e) => {
     form.gender.value = '';
     form.age.value = '';
 
-    // await alert("Successfully Add Account !");
+    await alert("Successfully Add Account !");
     await location.reload();
 });
