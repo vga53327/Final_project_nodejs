@@ -1,7 +1,6 @@
 let express = require('express');
 let firebase = require('firebase');
-let port = process.env.PORT || 3000;
-console.log("server running at port =",port);
+
 
 
 var firebaseConfig = {
@@ -110,6 +109,11 @@ app.get('/API/addMember', (req, res) => {
 app.get('*', (req, res) => {  
     res.send('No Content');  
 });
+
+let port = process.env.PORT || 3000;
+
+console.log("server running at port =",port);
+console.log(process.env);
 
 app.listen(port, () => {
     console.log(`server listen on port =${port}`)
