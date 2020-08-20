@@ -10,7 +10,10 @@ for(let i = 0 ; i < cross.length; i ++){
         let text = await res.text();
         console.log(text);
         console.log("in the cross, id = ", id);
-        // call delete api
+
+        await alert("Successfully Delete Account !");
+        // 馬上重新整理
+        await location.reload();
     });
 }
 // add data
@@ -27,4 +30,7 @@ form.addEventListener('submit', async (e) => {
     form.name.value = '';
     form.gender.value = '';
     form.age.value = '';
+
+    await alert("Successfully Add Account !");
+    await location.reload();
 });

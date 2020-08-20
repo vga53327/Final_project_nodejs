@@ -1,7 +1,8 @@
 let express = require('express');
 let firebase = require('firebase');
-
-
+const path = require('path'); // 使用 path 套件來處理路徑問題
+let app = express();
+app.use(express.static('./public'));
 
 var firebaseConfig = {
     apiKey: "AIzaSyDit0eTpo8qPNecLNkientINF8ymA-vINk",
@@ -13,13 +14,13 @@ var firebaseConfig = {
     appId: "1:913726356571:web:18f100936bb5e48141937e",
     measurementId: "G-EQWT29RZ7Q"
   };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
 let db = firebase.firestore();
-let app = express();
-app.use(express.static('./public'));
-app.set('view engine', 'ejs');  
+
+app.set('view engine', 'ejs');
+
 app.get('/', async (req, res) => {  
     let data = await db.collection('ClassA').get();
     let userArr = []
@@ -33,6 +34,19 @@ app.get('/', async (req, res) => {
         users: userArr
     });  
 });
+
+
+app.get("/home",(req,res) => {
+    
+    pathname = path.join(__dirname, 'public');
+    let options = {
+        root: pathname,
+        dotfiles: 'deny'
+    }
+    
+    res.sendFile('home.html',options); //傳送任何檔案類型(只能傳一次)
+})
+
 
 app.get("/jim", async (req, res) => {
     let data = await db.collection('ClassA').get();
@@ -112,8 +126,8 @@ app.get('*', (req, res) => {
 
 let port = process.env.PORT || 3000;
 
-console.log("server running at port =",port);
-console.log(process.env);
+// console.log("server running at port =",port);
+// console.log(process.env);
 
 app.listen(port, () => {
     console.log(`server listen on port =${port}`)
