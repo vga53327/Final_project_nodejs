@@ -113,11 +113,95 @@ app.get('/API/deleteMember', (req, res) => {
 app.get('/API/addMember', (req, res) => {
     db.collection('ClassA').add({
         name: req.query.name,
-        gender: req.query.age,
-        age: req.query.gender
+        gender: req.query.gender,
+        age: req.query.age
     });
     console.log("Add member !!");
     res.send("Add member success!");
+})
+
+app.get("/BookKeeping_frontend", (req, res) => {
+
+    pathname = path.join(__dirname, 'public');
+    // console.log(pathname);  // __dirname/public/example.html
+    let options = {
+        root: pathname,
+        dotfiles: 'deny'
+    }
+    
+    res.sendFile('bookKeeping.html',options); //傳送任何檔案類型(只能傳一次)
+
+
+    // let html = '';
+    // await db.collection('Account').get().then(data => {
+    //     data.forEach(doc => {
+    //         console.log(doc.data())
+    //         html += `${html}<div>${doc.id}: name = ${doc.data().name} age = ${doc.data().age}</div>`;
+    //     });
+    // });
+    // console.log(html)
+    // res.send(html)
+})
+
+app.get("/BookKeeping_backend", async (req, res) => {
+    let data = await db.collection('Account').get();
+    accArr = []
+    data.forEach((doc) => {
+        accArr.push({
+            id: doc.id,
+            item: doc.data().item,
+            account: doc.data().account,
+            date: doc.data().date,
+            location: doc.data().location,
+            price: doc.data().price,
+            category: doc.data().category
+        })
+    })
+    res.render('bookKeeping', {
+        acc: accArr
+    })
+})
+
+app.get("/BookKeeping_backend/API/addAccount",async (req,res) => {
+
+    console.log(req.query);
+    let item = req.query.item;
+    let account = req.query.account;
+    let date = req.query.date;
+    let loc = req.query.location;
+    let price = req.query.price;
+    let category = req.query.category;
+
+    db.collection('Account').add({
+        item: item,
+        account: account,
+        date: date,
+        location: loc,
+        price: price,
+        category: category
+    });
+
+    // res.send(`Add Account: 
+    //     ${item},
+    //     ${account},
+    //     ${date},
+    //     ${loc},
+    //     ${price},
+    //     ${category}`);
+
+    res.redirect("http://127.0.0.1:3000/BookKeeping_backend")
+
+})
+
+
+app.get("/BookKeeping_backend/API/deleteAccount",async(req,res) => {
+    
+    db.collection('Account').doc(req.query.id).delete();
+    console.log(req.query.id);
+    res.send(`delete account id = ${req.query.id}!`)
+
+    res.redirect("http://127.0.0.1:3000/BookKeeping_backend")
+    
 })
 
 app.get('*', (req, res) => {  

@@ -3,17 +3,17 @@
     <head>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <h1>MaDi's <br> Book Keeping <br> (Frontend)</h1>
+    <h1>Jim's <br> Book Keeping <br> (Frontend)</h1>
     <body>
         <div class="content">
-            <form id="add-accounts-form">
+            <form id="add-students-form">
                 <input type="text" name="item" placeholder="輸入 Item">
                 <input type="text" name="date" placeholder="輸入 Date (ex: 2020/8/15)">
                 <input type="text" name="location" placeholder="輸入 Location">
                 <input type="float" name="price" placeholder="輸入 Price">
                 <select name="account" >
                     <option value="none" selected disabled hidden> 輸入 Expense or Income </option>
-                    <option value="Expense"">支出(Expense)</option>
+                    <option value="Expense">支出(Expense)</option>
                     <option value="Income">收入(Income)</option>
                 </select>
                 <select name="category" >
@@ -28,7 +28,7 @@
                 <br>
                 <button> 增加帳目 </button> 
             </form>
-            <table id="acc-table" cellpadding="10" border="1" width="100%">
+            <table id="stu-table" cellpadding="10" border="1" width="100%">
                 　<tr>
                 　  <td>Item</td>
                     <td>Expense/Income</td>
@@ -52,5 +52,22 @@
     <!--額外加入這行-->
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
 
-    <script src="frontend.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDit0eTpo8qPNecLNkientINF8ymA-vINk",
+            authDomain: "jimchu-nodejs-02.firebaseapp.com",
+            databaseURL: "https://jimchu-nodejs-02.firebaseio.com",
+            projectId: "jimchu-nodejs-02",
+            storageBucket: "jimchu-nodejs-02.appspot.com",
+            messagingSenderId: "913726356571",
+            appId: "1:913726356571:web:18f100936bb5e48141937e",
+            measurementId: "G-EQWT29RZ7Q"
+            };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+    </script>
+    <script src="frontend_setEvent.js"></script>
 </html>

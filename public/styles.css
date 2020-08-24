@@ -77,3 +77,17 @@ button{
     letter-spacing: 1px;
     color: #999;
 }
+
+form select{
+    float: left;
+    width: 25%;
+    margin: 0;
+    border: 0;
+    color: #555;
+    border-bottom: 1px solid rgb(221, 132, 132);
+    margin: 0 1%;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    font-size: 18px;
+}

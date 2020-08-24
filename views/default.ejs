@@ -4,8 +4,23 @@
         <meta charset="utf-8">  
         <title>實作EJS</title>  
     </head>  
-    <body>  
-        <h1><%= title %></h1>    
+    <body>
+        <h1><%= title %></h1> 
+        <ul>
+            <li><a href="/home">home</a></li>
+            <li><a href="/jim">jim</a></li>
+            <li><a href="/firebase-test">firebase-test</a></li>
+            <li><a href="/ClassA_backend">ClassA_backend</a></li>
+            <li><a href="/ClassA_frontend">ClassA_frontend</a></li>
+            <li><a href="/who/name">/who/:name</a></li>
+            <li>/API/deleteMember?{ID}</li>
+            <li>/API/addMember?name=jim&age=30&gender=boy</li>
+            <li><a href="/BookKeeping_frontend">BookKeeping_frontend</a></li>
+            <li><a href="/BookKeeping_backend">BookKeeping_backend</a></li>
+            <li>/BookKeeping_backend/API/addAccount?item=打工& account=Income&date=2020/8/15&location=內湖&price=250&category=薪資收入</li>
+            <li>/BookKeeping_backend/API/deleteAccount?id=欲刪除的id</li>
+
+        </ul>   
         <ul>  
             <% for(var i=0; i<users.length; i++) {%>  
                 <li><%= users[i] %></li>  
